@@ -13,7 +13,7 @@ WORKDIR /app
 EXPOSE 3000
 
 # Run the frontend application
-
+COPY package.json /app
 CMD ["npm", "start"]
 
 

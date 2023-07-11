@@ -4,6 +4,11 @@ FROM golang:1.19
 # Set the working directory inside the container
 WORKDIR /app
 
+# Copy the backend folder into the container
+COPY backend/ .
+
+# Install dependencies
+RUN go get ./...
 
 # Expose the port on which the backend server runs
 EXPOSE 8080
@@ -12,12 +17,8 @@ EXPOSE 8080
 CMD ["go", "run", "main.go"]
 
 
-# Install dependencies
-RUN go get ./...
 
 
-# Copy the backend folder into the container
-COPY backend/ .
 
 
 

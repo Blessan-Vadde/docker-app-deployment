@@ -8,23 +8,24 @@ FROM node:14.17.0
 
 WORKDIR /app
 
+# Expose the port on which the frontend server runs
 
-# Copy the frontend folder into the container
+EXPOSE 3000
 
-COPY frontend/ .
+# Run the frontend application
+
+CMD ["npm", "start"]
 
 
 # Install dependencies
 
 RUN npm install
 
+# Copy the frontend folder into the container
 
-# Expose the port on which the frontend server runs
-
-EXPOSE 3000
+COPY frontend/ .
 
 
-# Run the frontend application
 
-CMD ["npm", "start"]
+
 

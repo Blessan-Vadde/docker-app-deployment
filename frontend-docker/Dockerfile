@@ -4,15 +4,14 @@ FROM node:14.17.0
 
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Copy the frontend folder into the container
-COPY frontend/package.json frontend/package-lock.json /app/
+COPY package*.json  /
 
-ENV NODE_ENV=production
-RUN npm install --production
+RUN npm install
 
-COPY frontend/ /app
+COPY . .
 
 # Expose the port on which the frontend server runs
 EXPOSE 3000

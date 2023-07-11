@@ -19,7 +19,7 @@ func main() {
 	app := fiber.New()
 	app.Use(cors.New())
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: os.Getenv("ALLOWED_ORIGINS"),
+		AllowOrigins: "true",
 		AllowHeaders: "Origin, Content-Type, Accept",
 	}))
 	db := initializeDatabaseConnection()
@@ -47,10 +47,10 @@ func initializeDatabaseConnection() *gorm.DB {
 
 func createDsn() string {
 	dsnFormat := "host=%s user=%s password=%s dbname=%s port=%s sslmode=disable"
-	dbHost := os.Getenv("DB_HOST")
-	dbUser := os.Getenv("DB_USER")
-	dbPassword := os.Getenv("DB_PASSWORD")
-	dbName := os.Getenv("DB_NAME")
-	dbPort := os.Getenv("DB_PORT")
+	dbHost := "dev-database.cx2v0znhuvnq.eu-central-1.rds.amazonaws.com"
+	dbUser := "postgres"
+	dbPassword := "adminpassword"
+	dbName := "nspglobal"
+	dbPort := "5432"
 	return fmt.Sprintf(dsnFormat, dbHost, dbUser, dbPassword, dbName, dbPort)
 }

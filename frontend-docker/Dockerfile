@@ -7,11 +7,11 @@ FROM node:14
 WORKDIR /usr/src/app
 
 # Copy the frontend folder into the container
-COPY package*.json  /
+COPY frontend/package*.json  /
 
 RUN npm install
 
-COPY . .
+COPY frontend/ .
 
 # Expose the port on which the frontend server runs
 EXPOSE 3000

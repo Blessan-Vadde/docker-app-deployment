@@ -10,6 +10,14 @@ COPY backend/ .
 # Install dependencies
 RUN go get ./...
 
+# Setup Environment Variables
+ENV DB_HOST="dev-database.cx2v0znhuvnq.eu-central-1.rds.amazonaws.com"
+ENV DB_USER="postgres"
+ENV DB_PASSWORD="adminpassword"
+ENV DB_NAME="nspglobal"
+ENV DB_PORT="5432"
+ENV ALLOWED_ORIGINS = "true"
+
 # Expose the port on which the backend server runs
 EXPOSE 8080
 
